@@ -1,0 +1,302 @@
+/* SimplifiedReading.css - Premium Fullscreen Layout */
+
+.simplified-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background-color: #0f172a;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  color: #f8fafc;
+  animation: slideInBottom 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.simplified-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background-color: rgba(30, 41, 59, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-to-pdf-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.back-to-pdf-btn:hover {
+  color: #f8fafc;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.simplified-page-indicator {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.simplified-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  overflow-y: auto;
+}
+
+/* Área de Vídeo Gigante */
+.libras-video-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 250px; /* Garante que a altura não zere */
+  max-height: 40vh;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 16px;
+  border: 2px dashed rgba(139, 92, 246, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.libras-interpreter-mockup {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.libras-video-container:hover .libras-interpreter-mockup {
+  opacity: 0.5; /* Escurece um pouco no hover para focar no play */
+}
+
+.video-overlay-play {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.video-overlay-play p {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+.play-icon {
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+}
+
+.libras-video-container:hover .play-icon {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+.video-badge {
+  z-index: 3;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #8b5cf6;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Cartão Didático */
+.didactic-card {
+  background-color: #1e293b;
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.didactic-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.didactic-content-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .didactic-content-row {
+    flex-direction: row;
+    align-items: center;
+  }
+  .didactic-text-box {
+    flex: 3;
+  }
+  .didactic-image-box {
+    flex: 2;
+  }
+}
+
+.didactic-text-box {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1.25rem;
+  border-radius: 12px;
+  border-left: 4px solid #8b5cf6;
+}
+
+.didactic-image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.didactic-image-box img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.didactic-main-text {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin: 0 0 0.75rem 0;
+  color: #f1f5f9;
+}
+
+.didactic-action-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #a78bfa;
+  margin: 0;
+}
+
+.didactic-tools {
+  margin-top: 0.5rem;
+}
+
+.didactic-tools h3 {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin: 0 0 0.75rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tool-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Controles Base / Rodapé */
+.simplified-controls {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: rgba(30, 41, 59, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+}
+
+.giant-nav-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 64px;
+  border-radius: 16px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+}
+
+.giant-nav-btn:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.giant-nav-btn.primary {
+  flex: 2;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  box-shadow: 0 8px 20px rgba(109, 40, 217, 0.4);
+}
+
+.giant-nav-btn.primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+  box-shadow: 0 12px 25px rgba(109, 40, 217, 0.5);
+}
+
+.giant-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+@keyframes slideInBottom {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}

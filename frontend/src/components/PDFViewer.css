@@ -1,0 +1,140 @@
+/* PDFViewer.css - Premium Mobile First Design */
+
+.pdf-viewer-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh; /* Para navegadores mobile modernos */
+  background-color: #0f172a; /* Dark premium background */
+  color: #f8fafc;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Removido o pdf-header */
+
+.pdf-main {
+  position: relative; /* Necessário para os botões laterais absolutos */
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Move o PDF mais para cima */
+  padding: 2rem 1rem 1rem 1rem; /* Dá um respiro superior para não colar na barra */
+  background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+}
+
+.pdf-document-wrapper {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+/* Esconde as bordas extras do react-pdf */
+.pdf-page {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.pdf-page canvas {
+  max-width: 100%;
+  height: auto !important;
+}
+
+.pdf-loading, .pdf-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: #94a3b8;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+  color: #3b82f6;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Controles Topo */
+.pdf-top-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(30, 41, 59, 0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 5;
+}
+
+/* Botões Laterais */
+.side-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 20;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.side-button.left {
+  left: 0.5rem;
+}
+
+.side-button.right {
+  right: 0.5rem;
+}
+
+.side-button:hover:not(:disabled) {
+  background: rgba(59, 130, 246, 0.8);
+  border-color: rgba(96, 165, 250, 0.5);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.side-button:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.side-button:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.page-indicator {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.page-indicator span:first-child {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+}
+
+.page-total {
+  font-size: 0.875rem;
+  color: #94a3b8;
+}

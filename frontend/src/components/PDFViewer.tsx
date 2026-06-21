@@ -20,7 +20,7 @@ interface PDFViewerProps {
 export default function PDFViewer({ pdfUrl }: PDFViewerProps) {
   const [numPages, setNumPages] = useState<number | null>(null);
   const [pageNumber, setPageNumber] = useState(1);
-  const [scale, setScale] = useState(0.85); // Reduzido para dar um visual mais compacto
+  const [scale] = useState(0.85); // Reduzido para dar um visual mais compacto
   const [isAssistantOpen, setIsAssistantOpen] = useState(false);
   const [isSimplifiedOpen, setIsSimplifiedOpen] = useState(false);
 

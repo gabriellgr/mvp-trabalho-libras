@@ -138,3 +138,37 @@
   font-size: 0.875rem;
   color: #94a3b8;
 }
+
+/* Botão Central de Leitura Simplificada */
+.simplify-action-container {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+}
+
+.simplify-action-btn {
+  background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(126, 34, 206, 0.5);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.simplify-action-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(126, 34, 206, 0.6);
+}
+
+.simplify-action-btn:active {
+  transform: scale(0.95);
+}

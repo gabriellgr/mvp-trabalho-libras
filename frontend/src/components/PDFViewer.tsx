@@ -94,16 +94,19 @@ export default function PDFViewer({ pdfUrl }: PDFViewerProps) {
       </main>
 
       {/* FABs de Ações */}
-      <div className="fab-container">
+      {/* Botão de Leitura Simplificada Centralizado */}
+      <div className="simplify-action-container">
         <button 
-          className="fab-button secondary" 
+          className="simplify-action-btn"
           onClick={() => setIsSimplifiedOpen(true)}
-          aria-label="Simplificar Leitura"
-          title="Simplificar Leitura"
+          aria-label="Ativar Leitura Simplificada para Surdos"
         >
-          <BookOpenText size={26} />
+          <BookOpenText size={24} />
+          <span>Simplificar Leitura</span>
         </button>
+      </div>
 
+      <div className="fab-container">
         <button 
           className="fab-button" 
           onClick={() => setIsAssistantOpen(true)}
